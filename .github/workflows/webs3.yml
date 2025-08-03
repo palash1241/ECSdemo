@@ -35,11 +35,10 @@ jobs:
           container-name: testecs
           image: 914052799421.dkr.ecr.us-east-1.amazonaws.com/static-site:latest
 
-      - name: Deploy to ECS
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-        with:
-          service: ${{ env.ECS_SERVICE }}
-          cluster: ${{ env.ECS_CLUSTER }}
-          task-definition: taskdef.yaml
-          wait-for-service-stability: true
-          force-new-deployment: true
+      - name: Render ECS Task Definition
+  id: render-task
+  uses: aws-actions/amazon-ecs-render-task-definition@v1
+  with:
+    task-definition: taskdef.json
+    container-name: testecs
+    image: 914052799421.dkr.ecr.us-east-1.amazonaws.com/static-site:latest
