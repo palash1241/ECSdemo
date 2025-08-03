@@ -1,15 +1,22 @@
 family: testecs
 networkMode: awsvpc
-requiresCompatibilities:
-  - FARGATE
-cpu: 256
-memory: 512
 containerDefinitions:
   - name: testecs
-    image: placeholder
-    essential: true
+    image: placeholder  # This will be replaced by the GitHub Action
     portMappings:
       - containerPort: 80
-        protocol: tcp
+    essential: true
+    logConfiguration:
+      logDriver: awslogs
+      options:
+        awslogs-group: /ecs/testecs
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: ecs
+cpu: 256
+memory: 512
+requiresCompatibilities:
+  - FARGATE
+executionRoleArn: arn:aws:iam::914052799421:role/ecsTaskExecutionRole
+taskRoleArn: arn:aws:iam::914052799421:role/ecsTaskExecutionRole
 
 
