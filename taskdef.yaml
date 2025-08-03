@@ -1,9 +1,9 @@
 family: testecs
 networkMode: awsvpc
 requiresCompatibilities:
-  - FARGATE
-cpu: "256"
-memory: "512"
+  - FARGATE 
+cpu: 256
+memory: 512
 containerDefinitions:
   - name: testecs
     image: 914052799421.dkr.ecr.us-east-1.amazonaws.com/static-site:latest
@@ -11,3 +11,4 @@ containerDefinitions:
     portMappings:
       - containerPort: 80
         protocol: tcp
+
