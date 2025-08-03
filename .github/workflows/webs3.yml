@@ -47,7 +47,8 @@ jobs:
         id: render-task
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: website/taskdef.yml
+          with:
+          task-definition: taskdef.yml
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image_uri }}
 
