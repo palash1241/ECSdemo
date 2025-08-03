@@ -6,7 +6,7 @@ cpu: 256
 memory: 512
 containerDefinitions:
   - name: testecs
-    image: 914052799421.dkr.ecr.us-east-1.amazonaws.com/static-site:latest
+    image: placeholder
     essential: true
     portMappings:
       - containerPort: 80
