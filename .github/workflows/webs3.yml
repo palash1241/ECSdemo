@@ -40,6 +40,6 @@ jobs:
         with:
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
-          task-definition: ${{ steps.render-task.outputs.task-definition }}
+          task-definition: taskdef.yaml
           wait-for-service-stability: true
           force-new-deployment: true
